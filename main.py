@@ -2,9 +2,9 @@ import consts
 import grid
 
 def print_grid(game_grid):
-    for row in range(len(game_grid)):
+    for row in range(consts.ROW_GRID):
         print()
-        for col in range(len(game_grid[row])):
+        for col in range(consts.COL_GRID):
             print(game_grid[row][col], end="\t")
 
 def main():
