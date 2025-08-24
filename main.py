@@ -1,16 +1,14 @@
-# This is a sample Python script.
+import consts
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main(name):
+    game_grid = []
+    for row in range(consts.ROW_GRID):
+        game_grid.append([])
+        for col in range(consts.COL_GRID):
+            game_grid[row].append(consts.EMPTY)
+    print(game_grid)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('Ateret Braha')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
