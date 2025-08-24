@@ -1,5 +1,7 @@
+import pygame.key
+import soldier
 import consts
-import grid
+import game_field
 
 def print_grid(game_grid):
     for row in range(len(game_grid)):
@@ -7,17 +9,25 @@ def print_grid(game_grid):
         for col in range(len(game_grid[row])):
             print(game_grid[row][col], end="\t")
 
+
+def input_operation(game_grid):
+    #if close window:
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT] or keys[pygame.K_RIGHT] or keys[pygame.K_UP] or keys[pygame.K_DOWN]:
+        soldier.moving(game_grid)
+    #if enter
+
 def main():
-    game_grid = grid.grid_init()
-
-    soldier = (0,0)
-    grid.soldier_init(game_grid, soldier)
-
-    grid.flag_init(game_grid)
+    game_grid = game_field.grid_init()
+    #soldier.soldier_init(game_grid)
+    game_field.flag_init(game_grid)
+    game_field.init_mines(game_grid)
 
     print_grid(game_grid)
 
-
+    """run = True
+    while run:
+        input_operation()"""
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
