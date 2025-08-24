@@ -2,9 +2,9 @@ import consts
 import grid
 
 def print_grid(game_grid):
-    for row in range(consts.ROW_GRID):
+    for row in range(len(game_grid)):
         print()
-        for col in range(consts.COL_GRID):
+        for col in range(len(game_grid[row])):
             print(game_grid[row][col], end="\t")
 
 def main():
@@ -12,6 +12,8 @@ def main():
 
     soldier = (0,0)
     grid.soldier_init(game_grid, soldier)
+
+    grid.flag_init(game_grid)
 
     print_grid(game_grid)
 
