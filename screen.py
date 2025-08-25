@@ -1,7 +1,6 @@
+
 import random
 import pygame
-
-import soldier
 from consts import *
 
 
@@ -34,14 +33,13 @@ def screen_main():
 
     grass_image = pygame.image.load('grass.png')
     grass_image = pygame.transform.scale(grass_image, (P_GRASS_WIDTH, P_GRASS_HEIGHT))
+
     grass_positions = []
 
     for element in range(P_GRASS_AMOUNT):
         x = random.randint(0, P_SCREEN_WIDTH - P_GRASS_WIDTH)
         y = random.randint(0, P_SCREEN_HEIGHT - P_GRASS_HEIGHT)
         grass_positions.append((x, y))
-    sol_x, sol_y = 0, 0
-    flag_x = P_SCREEN_WIDTH - P_FLAG_WIDTH
-    flag_y = P_SCREEN_HEIGHT - P_FLAG_HEIGHT
 
+        pygame.display.flip()
     pygame.quit()
