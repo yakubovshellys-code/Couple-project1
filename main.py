@@ -41,33 +41,34 @@ def main():
 
     running = True
     while running:
+
         for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
-                keys = pygame.key.get_pressed()
+            keys = pygame.key.get_pressed()
 
-                if keys[K_LEFT]:
-                    soldier.soldier = soldier.move_left(game_grid)
-                elif keys[K_RIGHT]:
-                    soldier.soldier = soldier.move_right(game_grid)
-                elif keys[K_UP]:
-                    soldier.soldier = soldier.move_up(game_grid)
-                elif keys[K_DOWN]:
-                    soldier.soldier = soldier.move_down(game_grid)
+            if keys[K_LEFT]:
+                soldier.soldier = soldier.move_left(game_grid)
+            if keys[K_RIGHT]:
+                soldier.soldier = soldier.move_right(game_grid)
+            if keys[K_UP]:
+                soldier.soldier = soldier.move_up(game_grid)
+            if keys[K_DOWN]:
+                soldier.soldier = soldier.move_down(game_grid)
 
-                print(soldier.soldier)
-                new_location = game_field.row_and_col_to_pixels([soldier.soldier])
-                print(new_location)
+            print(soldier.soldier)
+            new_location = game_field.row_and_col_to_pixels([soldier.soldier])
+            print(new_location)
 
-                if won(game_grid, soldier.soldier):
-                    # TODO: screen winner massage
-                    time.gmtime(3)
-                    running = False
-                elif lose(game_grid, soldier.soldier):
-                    # TODO: screen loser massage
-                    time.gmtime(3)
-                    running = False
+            screen.draw_solider(screen, soldier.soldier)
+            pygame.display.flip()
 
-                screen.draw_solider(screen.screen, new_location[0])
+            if won(game_grid, soldier.soldier):
+                # TODO: screen winner massage
+                time.gmtime(3)
+                running = False
+            elif lose(game_grid, soldier.soldier):
+                # TODO: screen loser massage
+                time.gmtime(3)
+                running = False
 
             if event.type == pygame.QUIT:
                 running = False
