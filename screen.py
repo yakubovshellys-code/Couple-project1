@@ -1,15 +1,11 @@
 
 import random
 import pygame
-
-import consts
 import soldier
 from consts import *
 
 
 def draw_solider(screen, soldier_image, location):
-    #solider_image = pygame.image.load('soldier.png')
-    #solider_image = pygame.transform.scale(solider_image, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT))
     screen.blit(soldier_image, location)
 
 
@@ -41,7 +37,6 @@ def image(name_image:str, size:tuple):
     image = pygame.transform.scale(image, size)
     return image
 
-
 grass_positions = []
 for element in range(P_GRASS_AMOUNT):
     x = random.randint(0, P_SCREEN_WIDTH - P_GRASS_WIDTH)
@@ -49,17 +44,11 @@ for element in range(P_GRASS_AMOUNT):
     grass_positions.append((x, y))
 flag_x = P_SCREEN_WIDTH - P_FLAG_WIDTH
 flag_y = P_SCREEN_HEIGHT - P_FLAG_HEIGHT
-running = True
-while running:
-    screen.fill(pygame.Color('green'))
-    for pos in grass_positions:
-        screen.blit(image(GRASS_IMAGE, (P_GRASS_WIDTH, P_GRASS_HEIGHT)), pos)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+screen.fill(pygame.Color('green'))
+for pos in grass_positions:
+    screen.blit(image(GRASS_IMAGE, (P_GRASS_WIDTH, P_GRASS_HEIGHT)), pos)
 
     draw_solider(screen, image(SOLDIER_IMAGE, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT)), soldier.soldier)
     #draw_flag(screen, flag_image, (flag_x, flag_y))
     draw_text(screen)
     pygame.display.flip()
-pygame.quit()

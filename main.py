@@ -42,22 +42,22 @@ def main():
 
         for event in pygame.event.get():
             keys = pygame.key.get_pressed()
+            if event.type == pygame.KEYUP or event.type == pygame.KEYDOWN:
+                if keys[K_LEFT]:
+                    soldier.soldier = soldier.move_left(game_grid)
+                if keys[K_RIGHT]:
+                    soldier.soldier = soldier.move_right(game_grid)
+                if keys[K_UP]:
+                    soldier.soldier = soldier.move_up(game_grid)
+                if keys[K_DOWN]:
+                    soldier.soldier = soldier.move_down(game_grid)
 
-            if keys[K_LEFT]:
-                soldier.soldier = soldier.move_left(game_grid)
-            if keys[K_RIGHT]:
-                soldier.soldier = soldier.move_right(game_grid)
-            if keys[K_UP]:
-                soldier.soldier = soldier.move_up(game_grid)
-            if keys[K_DOWN]:
-                soldier.soldier = soldier.move_down(game_grid)
+                print(soldier.soldier)
+                new_location = game_field.row_and_col_to_pixels([soldier.soldier])
+                print(new_location)
 
-            print(soldier.soldier)
-            new_location = game_field.row_and_col_to_pixels([soldier.soldier])
-            print(new_location)
-
-            screen.draw_solider(screen, screen.image(SOLDIER_IMAGE, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT)), soldier.soldier)
-            pygame.display.flip()
+                screen.draw_solider(screen, screen.image(SOLDIER_IMAGE, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT)), soldier.soldier)
+                pygame.display.flip()
 
             if won(game_grid, soldier.soldier):
                 # TODO: screen winner massage
