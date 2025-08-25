@@ -37,3 +37,7 @@ SUM_MINES = 20
 MINE_HEIGHT = 1
 MINE_WIDTH = 3
 MINE = "MINE"
+
+# Pictures
+GRASS_IMAGE = "grass.png"
+SOLDIER_IMAGE = "soldier.png"

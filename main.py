@@ -3,7 +3,7 @@ import time
 import pygame.key
 from pygame.locals import *
 import soldier
-import consts
+from consts import *
 import game_field
 import screen
 
@@ -15,15 +15,15 @@ def print_grid(game_grid):
 
 
 def won(game_grid, soldier1):
-    if soldier1[0] >= consts.COL_GRID - consts.SOLDIER_WIDTH or soldier1[1] >= consts.ROW_GRID - consts.SOLDIER_HEIGHT:
+    if soldier1[0] >= COL_GRID - SOLDIER_WIDTH or soldier1[1] >= ROW_GRID - SOLDIER_HEIGHT:
         return True
     return False
 
 
 def lose(game_grid, soldier1):
-    for row in range(soldier1[0]+consts.BODY_SOLDIER_HEIGHT, consts.SOLDIER_HEIGHT):
-        for col in range(soldier1[1], consts.SOLDIER_WIDTH):
-            if game_grid[row][col] == consts.MINE:
+    for row in range(soldier1[0]+BODY_SOLDIER_HEIGHT, SOLDIER_HEIGHT):
+        for col in range(soldier1[1], SOLDIER_WIDTH):
+            if game_grid[row][col] == MINE:
                 return True
     return False
 
@@ -36,8 +36,6 @@ def main():
     mines_p = game_field.row_and_col_to_pixels(mines)
 
     print_grid(game_grid)
-
-    #screen.screen_main()
 
     running = True
     while running:
@@ -58,7 +56,7 @@ def main():
             new_location = game_field.row_and_col_to_pixels([soldier.soldier])
             print(new_location)
 
-            screen.draw_solider(screen, soldier.soldier)
+            screen.draw_solider(screen, screen.image(SOLDIER_IMAGE, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT)), soldier.soldier)
             pygame.display.flip()
 
             if won(game_grid, soldier.soldier):
