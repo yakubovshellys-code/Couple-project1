@@ -21,7 +21,8 @@ def main():
     game_grid = game_field.grid_init()
     #soldier.soldier_init(game_grid)
     game_field.flag_init(game_grid)
-    game_field.init_mines(game_grid)
+    mines = game_field.init_mines(game_grid)
+    mines_p = game_field.row_and_col_to_pixels(mines)
 
     print_grid(game_grid)
 

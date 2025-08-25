@@ -24,8 +24,14 @@ def random_mine():
     return (random.randint(0, consts.ROW_GRID-consts.HEIGHT_MINE), random.randint(0, consts.COL_GRID-consts.WIDTH_MINE))
 
 def init_mines(game_grid):
+    mines = []
     for i in range(consts.SUM_MINES):
         mine = random_mine()
+        mines.append(mine)
         for row in range(mine[0], mine[0]+consts.HEIGHT_MINE):
             for col in range(mine[1], mine[1]+consts.WIDTH_MINE):
                 game_grid[mine[0]][col] = consts.MINE
+    return mines
+
+
+def row_and_col_to_pixels(mines):
