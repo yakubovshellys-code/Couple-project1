@@ -1,12 +1,14 @@
+
 import random
 import pygame
-
 import soldier
 from consts import *
 
 
-def draw_solider(screen, image, location):
-    screen.blit(image, location)
+def draw_solider(screen, location):
+    solider_image = pygame.image.load('soldier.png')
+    solider_image = pygame.transform.scale(solider_image, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT))
+    screen.blit(solider_image, location)
 
 
 def draw_flag(screen, image, location):
@@ -26,8 +28,7 @@ def screen_main():
     screen = pygame.display.set_mode((P_SCREEN_WIDTH, P_SCREEN_HEIGHT))
     pygame.display.set_caption('The Flag')
 
-    solider_image = pygame.image.load('soldier.png')
-    solider_image = pygame.transform.scale(solider_image, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT))
+    draw_solider(screen, soldier.soldier)
 
     flag_image = pygame.image.load('flag.png')
     flag_image = pygame.transform.scale(flag_image, (P_FLAG_WIDTH, P_FLAG_HEIGHT))
