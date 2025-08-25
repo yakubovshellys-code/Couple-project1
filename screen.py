@@ -1,6 +1,7 @@
 import random
 import pygame
 from consts import *
+import time
 
 
 def draw_solider(screen, location):
@@ -32,25 +33,14 @@ def draw_text(screen):
     screen.blit(title2, (65, 25))
 
 
-def screen_main():
-    pygame.init()
-    screen = pygame.display.set_mode((P_SCREEN_WIDTH, P_SCREEN_HEIGHT))
-    screen.fill(pygame.Color('green'))
+#def screen_main():
+pygame.init()
+screen = pygame.display.set_mode((P_SCREEN_WIDTH, P_SCREEN_HEIGHT))
+screen.fill(pygame.Color('green'))
 
-    draw_grass(screen)
-    draw_solider(screen, (0, 0))
-    draw_flag(screen, (P_SCREEN_WIDTH - P_FLAG_WIDTH, P_SCREEN_HEIGHT - P_FLAG_HEIGHT))
-    draw_text(screen)
+draw_grass(screen)
+draw_solider(screen, (0, 0))
+draw_flag(screen, (P_SCREEN_WIDTH - P_FLAG_WIDTH, P_SCREEN_HEIGHT - P_FLAG_HEIGHT))
+draw_text(screen)
 
-    pygame.display.flip()
-
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
-    pygame.quit()
-
-
-screen_main()
+pygame.display.flip()

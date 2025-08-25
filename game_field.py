@@ -34,8 +34,8 @@ def init_mines(game_grid):
     return mines
 
 
-def row_and_col_to_pixels(mines):
-    p_mines = []
-    for i in range(len(mines)):
-        p_mines.append((mines[i][0] * consts.SIZE_SQUARE , mines[i][1] * consts.SIZE_SQUARE))
-    return p_mines
+def row_and_col_to_pixels(list):
+    p_list = []
+    for i in range(len(list)):
+        p_list.append((list[i][0] * consts.SIZE_SQUARE , list[i][1] * consts.SIZE_SQUARE))
+    return p_list
