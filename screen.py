@@ -24,13 +24,6 @@ def draw_text():
 pygame.init()
 screen = pygame.display.set_mode((P_SCREEN_WIDTH, P_SCREEN_HEIGHT))
 pygame.display.set_caption('The Flag')
-"""solider_image = pygame.image.load('soldier.png')
-solider_image = pygame.transform.scale(solider_image, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT))
-flag_image = pygame.image.load('flag.png')
-flag_image = pygame.transform.scale(flag_image, (P_FLAG_WIDTH, P_FLAG_HEIGHT))
-grass_image = pygame.image.load('grass.png')
-grass_image = pygame.transform.scale(grass_image, (P_GRASS_WIDTH, P_GRASS_HEIGHT))
-"""
 
 def image(name_image:str, size:tuple):
     image = pygame.image.load(name_image)

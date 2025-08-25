@@ -1,7 +1,7 @@
 # Matrix grid
 ROW_GRID = 25
 COL_GRID = 50
-EMPTY = "EMPTY"
+EMPTY = "E"
 
 # Screen
 P_SCREEN_WIDTH = 1200

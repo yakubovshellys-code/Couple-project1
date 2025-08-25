@@ -26,10 +26,18 @@ def if_in_grid(location):
 def if_can_move(game_grid):
     x = soldier[0]
     y = soldier[1]
+    for row in range(x, x + consts.SOLDIER_WIDTH):
+        for col in range(y, y + consts.LEGS_SOLDIER_HEIGHT):
+            if game_grid[row][col] == consts.MINE:
+                return False
+    return True
 
 
 def remove_soldier(game_grid):
-    pass
+    for row in range(len(game_grid)):
+        for col in range(len(game_grid[row])):
+            if game_grid[row][col] == consts.SOLDIER_LEG or game_grid[row][col] == consts.SOLDIER_BODY:
+                game_grid[row][col] = consts.EMPTY
 
 
 def move_left(game_grid):
@@ -37,6 +45,7 @@ def move_left(game_grid):
     if if_in_grid(new_location):
         if if_can_move(game_grid):
             remove_soldier(game_grid)
+            soldier_init(game_grid)
         return new_location
     return soldier
 
