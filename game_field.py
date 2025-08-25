@@ -13,25 +13,29 @@ def grid_init():
 
 # Sets the position of the flag on the grid.
 def flag_init(game_grid):
-    x_flag = consts.COL_GRID - consts.WIDTH_FLAG+1
-    y_flag = consts.ROW_GRID - consts.HEIGHT_FLAG+1
+    x_flag = consts.COL_GRID - consts.FLAG_WIDTH+1
+    y_flag = consts.ROW_GRID - consts.FLAG_HEIGHT+1
     for row in range(y_flag, len(game_grid)):
         for col in range(x_flag, len(game_grid[row])):
             game_grid[row][col] = consts.FLAG
 
 
 def random_mine():
-    return (random.randint(0, consts.ROW_GRID-consts.HEIGHT_MINE), random.randint(0, consts.COL_GRID-consts.WIDTH_MINE))
+    return (random.randint(0, consts.ROW_GRID-consts.MINE_HEIGHT), random.randint(0, consts.COL_GRID-consts.MINE_WIDTH))
 
 def init_mines(game_grid):
     mines = []
     for i in range(consts.SUM_MINES):
         mine = random_mine()
         mines.append(mine)
-        for row in range(mine[0], mine[0]+consts.HEIGHT_MINE):
-            for col in range(mine[1], mine[1]+consts.WIDTH_MINE):
+        for row in range(mine[0], mine[0]+consts.MINE_HEIGHT):
+            for col in range(mine[1], mine[1]+consts.MINE_WIDTH):
                 game_grid[mine[0]][col] = consts.MINE
     return mines
 
 
 def row_and_col_to_pixels(mines):
+    p_mines = []
+    for i in range(len(mines)):
+        p_mines.append((mines[i][0] * consts.SIZE_SQUARE , mines[i][1] * consts.SIZE_SQUARE))
+    return p_mines

@@ -1,4 +1,5 @@
 import pygame.key
+from pygame.locals import *
 import soldier
 import consts
 import game_field
@@ -10,12 +11,10 @@ def print_grid(game_grid):
             print(game_grid[row][col], end="\t")
 
 
-def input_operation(game_grid):
-    #if close window:
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT] or keys[pygame.K_RIGHT] or keys[pygame.K_UP] or keys[pygame.K_DOWN]:
-        soldier.moving(game_grid)
-    #if enter
+"""def input_operation(game_grid):
+    for event in pygame.event.get():
+        if (event.type == KEYUP) or (event.type == KEYDOWN):
+            print("key")"""
 
 def main():
     game_grid = game_field.grid_init()
@@ -28,7 +27,7 @@ def main():
 
     """run = True
     while run:
-        input_operation()"""
+        input_operation(game_grid)"""
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
