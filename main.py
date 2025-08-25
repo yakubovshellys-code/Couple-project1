@@ -1,13 +1,19 @@
 import consts
+import grid
+
+def print_grid(game_grid):
+    for row in range(len(game_grid)):
+        print()
+        for col in range(len(game_grid[row])):
+            print(game_grid[row][col], end="\t")
 
 def main():
-    game_grid = []
-    for row in range(consts.ROW_GRID):
-        game_grid.append([])
-        for col in range(consts.COL_GRID):
-            game_grid[row].append(consts.EMPTY)
+    game_grid = grid.grid_init()
 
+    soldier = (0,0)
+    grid.soldier_init(game_grid, soldier)
 
+    print_grid(game_grid)
 
 
 
