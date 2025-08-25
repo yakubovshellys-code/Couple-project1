@@ -15,7 +15,7 @@ def print_grid(game_grid):
 
 
 def won(game_grid, soldier1):
-    if soldier1[0] >= COL_GRID - SOLDIER_WIDTH or soldier1[1] >= ROW_GRID - SOLDIER_HEIGHT:
+    if soldier1[0] >= COL_GRID - SOLDIER_WIDTH and soldier1[1] >= ROW_GRID - SOLDIER_HEIGHT:
         return True
     return False
 
@@ -37,6 +37,7 @@ def main():
 
     print_grid(game_grid)
 
+    first = True
     running = True
     while running:
 
@@ -51,12 +52,16 @@ def main():
                     soldier.soldier = soldier.move_up(game_grid)
                 if keys[K_DOWN]:
                     soldier.soldier = soldier.move_down(game_grid)
+                if event.key == pygame.K_RETURN:
+                    if first:
+                        print("enter")
+                        first = False
 
                 print(soldier.soldier)
                 new_location = game_field.row_and_col_to_pixels([soldier.soldier])
                 print(new_location)
 
-                screen.draw_solider(screen, screen.image(SOLDIER_IMAGE, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT)), soldier.soldier)
+                screen.draw_solider(screen.image(SOLDIER_IMAGE, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT)), new_location[0])
                 pygame.display.flip()
 
             if won(game_grid, soldier.soldier):

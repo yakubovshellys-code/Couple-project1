@@ -18,26 +18,32 @@ def soldier_init(game_grid):
 def if_in_grid(location):
     if location[0] < 0 or location[1] < 0:
         return False
-    elif location[0] > consts.COL_GRID - consts.SOLDIER_WIDTH or location[1] > consts.ROW_GRID - consts.SOLDIER_HEIGHT:
+    elif location[0] > consts.ROW_GRID - consts.SOLDIER_WIDTH or location[1] > consts.COL_GRID - consts.SOLDIER_HEIGHT:
         return False
     else:
         return True
+
+def if_can_move(game_grid):
+    x = soldier[0]
+    y = soldier[1]
+
+
+def remove_soldier(game_grid):
+    pass
 
 
 def move_left(game_grid):
     new_location = (soldier[0]-1 , soldier[1])
     if if_in_grid(new_location):
-        """for row in range(len(game_grid)):
-            for col in range(len(game_grid[row])):
-                if game_grid[row][col] == consts.SOLDIER_BODY or game_grid[row][]
-                for sold in range(consts.SOLDIER_WIDTH*consts.SOLDIER_HEIGHT):
-                    """
+        if if_can_move(game_grid):
+            remove_soldier(game_grid)
         return new_location
     return soldier
 
 def move_right(game_grid):
     new_location = (soldier[0]+1, soldier[1])
     if if_in_grid(new_location):
+
         return new_location
     return soldier
 

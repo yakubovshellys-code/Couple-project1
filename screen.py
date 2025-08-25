@@ -5,15 +5,15 @@ import soldier
 from consts import *
 
 
-def draw_solider(screen, soldier_image, location):
+def draw_solider(soldier_image, location):
     screen.blit(soldier_image, location)
 
 
-def draw_flag(screen, image, location):
+def draw_flag(image, location):
     screen.blit(image, location)
 
 
-def draw_text(screen):
+def draw_text():
     font = pygame.font.Font(None, 24)
     title1 = font.render('Welcome to the flag game.', True, (255, 255, 255))
     title2 = font.render('Have fun!', True, (255, 255, 255))
@@ -48,7 +48,7 @@ screen.fill(pygame.Color('green'))
 for pos in grass_positions:
     screen.blit(image(GRASS_IMAGE, (P_GRASS_WIDTH, P_GRASS_HEIGHT)), pos)
 
-    draw_solider(screen, image(SOLDIER_IMAGE, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT)), soldier.soldier)
-    #draw_flag(screen, flag_image, (flag_x, flag_y))
-    draw_text(screen)
+    draw_solider(image(SOLDIER_IMAGE, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT)), soldier.soldier)
+    draw_flag(image(FLAG_IMAGE, (P_FLAG_WIDTH, P_FLAG_HEIGHT)), (flag_x, flag_y))
+    draw_text()
     pygame.display.flip()

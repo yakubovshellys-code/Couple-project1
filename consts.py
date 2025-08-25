@@ -41,3 +41,4 @@ MINE = "MINE"
 # Pictures
 GRASS_IMAGE = "grass.png"
 SOLDIER_IMAGE = "soldier.png"
+FLAG_IMAGE = "flag.png"
