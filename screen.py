@@ -4,8 +4,10 @@ import pygame
 from consts import *
 
 
-def draw_solider(screen, image, location):
-    screen.blit(image, location)
+def draw_solider(screen, location):
+    solider_image = pygame.image.load('soldier.png')
+    solider_image = pygame.transform.scale(solider_image, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT))
+    screen.blit(solider_image, location)
 
 
 def draw_flag(screen, image, location):
@@ -24,8 +26,7 @@ def screen_main():
     pygame.init()
     screen = pygame.display.set_mode((P_SCREEN_WIDTH, P_SCREEN_HEIGHT))
     pygame.display.set_caption('The Flag')
-    solider_image = pygame.image.load('soldier.png')
-    solider_image = pygame.transform.scale(solider_image, (P_SOLIDER_WIDTH, P_SOLIDER_HEIGHT))
+    draw_solider(screen,)
     flag_image = pygame.image.load('flag.png')
     flag_image = pygame.transform.scale(flag_image, (P_FLAG_WIDTH, P_FLAG_HEIGHT))
     grass_image = pygame.image.load('grass.png')
@@ -56,7 +57,7 @@ def screen_main():
             sol_y -= SIZE_SQUARE
         if keys[pygame.K_DOWN]:
             sol_y += SIZE_SQUARE
-        draw_solider(screen, solider_image, (sol_x, sol_y))
+        draw_solider(screen, (sol_x, sol_y))
         draw_flag(screen, flag_image, (flag_x, flag_y))
         draw_text(screen)
         pygame.display.flip()
